@@ -27,6 +27,8 @@ public class MainActivity extends AppCompatActivity {
         ParentFragmentPagerAdapter parentFragmentPagerAdapter = new ParentFragmentPagerAdapter(this);
         viewPager.setAdapter(parentFragmentPagerAdapter);
 
+        viewPager.setOffscreenPageLimit(parentFragmentPagerAdapter.getItemCount()-1);
+        
         new TabLayoutMediator(tabLayout, viewPager, true, false, (tab, position) -> {
             tab.setText("" + position);
         }).attach();
